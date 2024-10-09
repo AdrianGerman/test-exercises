@@ -2,7 +2,7 @@ import "./App.css"
 
 function App() {
   return (
-    <>
+    <main>
       <aside>
         <h1>Prueba de React</h1>
         <h2>Añadir y eliminar elementos de una lista</h2>
@@ -30,7 +30,7 @@ function App() {
           <li>Dibujar</li>
         </ul>
       </section>
-    </>
+    </main>
   )
 }
 
