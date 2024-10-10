@@ -33,12 +33,32 @@ const INITIAL_ITEMS: Item[] = [
 function App() {
   const [items, setItems] = useState(INITIAL_ITEMS)
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const { elements } = event.currentTarget
+    const input = elements.namedItem("item")
+    const isInput = input instanceof HTMLInputElement
+    if (!isInput || input == null) return
+
+    const newItem: Item = {
+      id: crypto.randomUUID(),
+      text: input.value,
+      timestamp: Date.now()
+    }
+
+    setItems((prevItem) => {
+      return [...prevItem, newItem]
+    })
+    input.value = ""
+  }
+
   return (
     <main>
       <aside>
         <h1>Prueba de React</h1>
         <h2>Añadir y eliminar elementos de una lista</h2>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <label htmlFor="">
             Elemento a introducir:{"   "}
             <input
