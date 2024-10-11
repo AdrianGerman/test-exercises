@@ -9,31 +9,31 @@ interface Item {
   text: string
 }
 
-const INITIAL_ITEMS: Item[] = [
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: "Videojuegos"
-  },
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: "Libros"
-  },
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: "Películas"
-  },
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: "Música"
-  }
-]
+// const INITIAL_ITEMS: Item[] = [
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: "Videojuegos"
+//   },
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: "Libros"
+//   },
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: "Películas"
+//   },
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: "Música"
+//   }
+// ]
 
 function App() {
-  const [items, setItems] = useState(INITIAL_ITEMS)
+  const [items, setItems] = useState<Item[]>([])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -65,7 +65,7 @@ function App() {
       <aside>
         <h1>Prueba de React</h1>
         <h2>Añadir y eliminar elementos de una lista</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label="Añadir elementos a la lista">
           <label htmlFor="">
             Elemento a introducir:{"   "}
             <input
@@ -81,18 +81,24 @@ function App() {
 
       <section>
         <h2>Lista de elementos</h2>
-        <ul>
-          {items.map((item) => {
-            return (
-              <li key={item.id}>
-                {item.text}
-                <button onClick={createHandleRemoveItem(item.id)}>
-                  Eliminar elemento
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+        {items.length === 0 ? (
+          <p>
+            <strong>No hay elementos en la lista</strong>
+          </p>
+        ) : (
+          <ul>
+            {items.map((item) => {
+              return (
+                <li key={item.id}>
+                  {item.text}
+                  <button onClick={createHandleRemoveItem(item.id)}>
+                    Eliminar elemento
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        )}
       </section>
     </main>
   )
