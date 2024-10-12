@@ -6,8 +6,15 @@
 
 main {
   display: grid;
-  grid-template-columns: 450px 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 64px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -18,9 +25,16 @@ form {
 }
 
 label {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 input {
   background-color: red;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

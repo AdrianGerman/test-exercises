@@ -54,7 +54,7 @@ function App() {
         </form>
       </aside>
 
-      <section>
+      <section className="list-item">
         <h2>Lista de elementos</h2>
         {items.length === 0 ? (
           <p>

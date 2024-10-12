@@ -69,10 +69,9 @@ button:focus-visible {
 input {
   display: block;
   background: #222;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: auto;
   border: 1px solid #555;
-  width: 50%;
   margin-bottom: 16px;
 }
 

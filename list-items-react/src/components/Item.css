@@ -1,7 +1,7 @@
 .list-items {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  justify-content: start;
-  align-items: center;
+  margin-top: 0.6rem;
+}
+
+button {
+  margin-left: 1rem;
 }
