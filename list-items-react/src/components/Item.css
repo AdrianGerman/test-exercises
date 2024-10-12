@@ -1,0 +1,7 @@
+.list-items {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: start;
+  align-items: center;
+}
